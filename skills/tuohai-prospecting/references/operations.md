@@ -9,7 +9,7 @@
 | 邮件草稿 | `save_email_template_draft`、`get_email_template_draft` 的版本规则和获客草稿一致。`list_email_templates`、`get_email_template` 读取已发布内容；`get_email_template_review` 读取供应商审核状态。 |
 | 邮件预览 | `preview_email_template` 接受一个 `draftId`（仅本人草稿，需 `template.draft.write`）或 `versionId`（本租户版本，需 `template.read`）。返回 `subject`、`bodyText`、用于隔离展示的 `bodyHtml` 和 `missingVariables`。预览中的链接和图片地址不可用。 |
 | 发布与引用 | `publish_email_template_version` 发布指定的草稿版本；相同请求返回原版本。`bind_email_template_version` 将指定的正式版本引用保存到获客草稿，不更新已排程邮件。 |
-| 启用与管理 | `prepare_prospecting_start` 返回签入拓海后可审核的数据入口；`get_prospecting_start_status` 需要 `draftId`、`revision`。`pause_prospecting_task`、`resume_prospecting_task` 操作自己的任务；有触达配置的任务回拓海恢复。 |
+| 启用与管理 | `prepare_prospecting_start` 返回登录 oceavant AI 后可审核的数据入口；`get_prospecting_start_status` 需要 `draftId`、`revision`。`pause_prospecting_task`、`resume_prospecting_task` 操作自己的任务；有触达配置的任务须在 oceavant AI 控制台恢复。 |
 | 企业深挖 | `prepare_company_deep_search` 需要 `taskId`、`companyId`。`get_company_deep_search_receipt` 另需预览产生的 `requestId`；拿到 `operationId` 后用 `get_company_deep_search_status` 查询。 |
 | 群发试点 | 如果已开放 `prepare_outreach`，只提交用户确认的关系 ID 和不可变模板版本。`start_outreach` 和 `get_outreach_status` 使用同一个 `grantId`，不能替用户在 Web 签发授权。额度或期限过期时停止请求。 |
 
